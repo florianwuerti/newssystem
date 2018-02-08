@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('news/new', 'NewsController@create')->middleware('auth');
+Route::post('news/new', 'NewsController@save')->middleware('auth');
+Route::get('/', 'NewsController@overview');
+Route::get('news/{id}', 'NewsController@view')->name('news');
+
+Route::get('category/new', 'CategoryController@create')->middleware('auth');
+Route::post('category/new', 'CategoryController@save')->middleware('auth');
