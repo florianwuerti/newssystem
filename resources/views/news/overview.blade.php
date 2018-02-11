@@ -4,6 +4,7 @@
   <hr>
   @foreach($news as $n)
 
+<img src="{{ asset('uploads/' . $n->post_thumbnail)}}" alt="">
     <h1>
       <a href="{{route('news', $n->id)}}">{{ $n->title }}</a>
     </h1>

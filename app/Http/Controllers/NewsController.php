@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\News;
 use App\Category;
 use App\User;
+use Image;
 
 use Auth;
 
@@ -26,8 +27,25 @@ class NewsController extends Controller
       $this->validate($request, [
           'title' => 'required|max:255',
           'text' => 'required',
-          'category' => 'required',
+          'category.*' => 'required',
+          'post_thumbnail' => 'image|mimes:jpeg,jpg,png|max:2000',
       ]);
+
+      // Wird geprüft, ob ein Thumbnail vorhanden ist.
+      if( $request->hasFile('post_thumbnail') ) {
+
+        // Speichert die Thumbnail Info's in eine Variable
+        $image = $request->file('post_thumbnail');
+
+        // Setzt den neuen Thumbnail-Name
+        $fileName = time(). '.' . $image->getClientOriginalExtension();
+
+        // Setzt den Dateipfad
+        $location = public_path('uploads/' . $fileName );
+
+        // Speichert das neue Thumbnail in den neuen Ordner
+        Image::make($image)->save($location);
+      }
 
       // Hier holen wir die aktuelle ID des eingeloggten Nutzers um sie zu speichern
       $user_id = Auth::id();
@@ -39,6 +57,8 @@ class NewsController extends Controller
       $news->title = $request->title;
       $news->text = $request->text;
       $news->user_id = $user_id;
+      $news->post_thumbnail = $fileName;
+
 
       // ...und gespeichert
       $news->save();

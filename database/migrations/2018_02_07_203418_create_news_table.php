@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
                   ->index();
             $table->string('title');
             $table->text('text');
+            $table->string('post_thumbnail');
             $table->timestamps();
         });
     }
