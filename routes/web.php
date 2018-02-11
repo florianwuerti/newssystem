@@ -17,8 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('news/new', 'NewsController@create')->middleware('auth');
-Route::post('news/new', 'NewsController@save')->middleware('auth');
+Route::get('admin/news/new', 'NewsController@create')->middleware('auth');
+Route::post('admin/news/new', 'NewsController@save')->middleware('auth');
 Route::get('/', 'NewsController@overview');
 Route::get('news/{id}', 'NewsController@view')->name('news');
 

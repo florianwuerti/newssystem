@@ -2,8 +2,9 @@
 
 @section('content')
 
+  <img src="{{ asset('uploads/' . $news->news_thumbnail)}}" alt="">
   <hr>
-  <h1>{{ $news->title }}</h1>
+  <h1>{{ $news->news_title }}</h1>
   <hr>
   <p>
       <em>{{ $news->created_at->diffForHumans() }}</em>
@@ -11,7 +12,7 @@
   <div class="row">
     <div class="col-md-8">
       <p>
-        {!! nl2br(e($news->text)) !!}
+        {!! nl2br(e($news->news_content)) !!}
       </p>
     </div>
     <div class="col-md-4">

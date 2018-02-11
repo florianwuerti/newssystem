@@ -8,7 +8,7 @@ use App\Category;
 class News extends Model
 {
     protected $fillable = [
-      'user_id', 'title', 'text,'
+      'news_author', 'news_title', 'news_content','news_thumbnail', 'news_status'
     ];
 
     public function categories() {
