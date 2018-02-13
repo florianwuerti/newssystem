@@ -19,6 +19,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/news/new', 'NewsController@create')->middleware('auth');
 Route::post('admin/news/new', 'NewsController@save')->middleware('auth');
+Route::get('admin/news/edit/{id}', 'NewsController@edit')->middleware('auth');
+Route::post('admin/news/edit/{id}', 'NewsController@update')->middleware('auth');
+
 Route::get('/', 'NewsController@overview');
 Route::get('news/{id}', 'NewsController@view')->name('news');
 

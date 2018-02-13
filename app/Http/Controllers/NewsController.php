@@ -7,6 +7,7 @@ use App\News;
 use App\Category;
 use App\User;
 use Image;
+use Illuminate\Support\Facades\Input;
 
 use Auth;
 
@@ -94,4 +95,69 @@ class NewsController extends Controller
         // Hier geben wir die News dann aus
         return view('news.view', compact('news', 'user'));
     }
+
+    public function edit($id)
+    {
+      $categories = Category::all();
+      // Hier wird die genaue News aus der Datenbank geladen inkl. Kategorien
+      $news = News::where('id', $id)->with('categories')->first();
+
+      $news = News::find($id);
+
+      return view('news.edit', compact('news', 'user', 'categories'));
+
+    }
+
+    public function update(Request $request, $id)
+    {
+      if($request->has('updateNews')) {
+
+        $news = News::find($id);
+
+        $this->validate($request, [
+            'news_title' => 'max:255',
+            'news_thumbnail' => 'image|mimes:jpeg,jpg,png',
+        ]);
+
+        // Wird geprüft, ob ein Thumbnail vorhanden ist.
+        if( $request->hasFile('news_thumbnail') ) {
+
+          // Speichert die Thumbnail Info's in eine Variable
+          $image = $request->file('news_thumbnail');
+
+          // Setzt den neuen Thumbnail-Name
+          $fileName = time(). '.' . $image->getClientOriginalExtension();
+
+          // Setzt den Dateipfad
+          $location = public_path('uploads/' . $fileName );
+
+          // Speichert das neue Thumbnail in den neuen Ordner
+          Image::make($image)->save($location);
+        }
+
+        $news->update([
+          'news_title' => $request->news_title,
+          'news_content' => $request->news_content,
+          ''
+        ]);
+
+        // Hiermit werden die Kategorien mit der News verbunden
+        $news->categories()->sync($request->category);
+
+        return redirect('/');
+
+      }else if($request->has('publish')) {
+
+        $news = News::find($id);
+
+        $news->update([
+          'news_status' => $request->publish,
+        ]);
+
+        // Der User wird bei erfolgreichem Speichern zurück zum Formular geschickt
+        return redirect()->back();
+
+      }
+    }
+
 }
