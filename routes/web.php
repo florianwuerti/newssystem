@@ -11,7 +11,11 @@
 |
 */
 
-
+Route::get('/', 'PagesController@index')->name('home');
+Route::get('/ueber-uns', 'PagesController@about')->name('about');
+Route::get('/projekte', 'PagesController@projects')->name('projects');
+Route::get('/blog', 'NewsController@overview')->name('news');
+Route::get('/kontakt', 'PagesController@contact')->name('contact');
 
 Auth::routes();
 
