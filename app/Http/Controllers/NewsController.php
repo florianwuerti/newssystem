@@ -99,6 +99,7 @@ class NewsController extends Controller
     public function edit($id)
     {
       $categories = Category::all();
+
       // Hier wird die genaue News aus der Datenbank geladen inkl. Kategorien
       $news = News::where('id', $id)->with('categories')->first();
 
@@ -144,7 +145,7 @@ class NewsController extends Controller
         // Hiermit werden die Kategorien mit der News verbunden
         $news->categories()->sync($request->category);
 
-        return redirect('/');
+        return redirect()->back();
 
       }else if($request->has('publish')) {
 
@@ -160,4 +161,14 @@ class NewsController extends Controller
       }
     }
 
+    public function show() {
+
+      // Hier wird die genaue News aus der Datenbank geladen inkl. Kategorien
+      $news = News::orderBy('created_at', 'desc' )->get();
+
+
+      // Hier geben wir die News dann aus
+      return view('news.show', compact('news'));
+
+    }
 }
