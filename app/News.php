@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 
+
 class News extends Model
 {
     protected $fillable = [
@@ -15,4 +16,7 @@ class News extends Model
       return $this->belongsToMany('App\Category');
     }
 
+    public function user(){
+      return $this->hasOne('App\User');;
+    }
 }

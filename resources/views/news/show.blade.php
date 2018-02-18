@@ -2,8 +2,7 @@
 
 @section('content')
   <hr>
-
-
+<a class="btn btn-primary mb-3 p-2" href="/admin/news/new">Create new News Post</a>
   <table class="table table-light">
     <thead>
       <tr>

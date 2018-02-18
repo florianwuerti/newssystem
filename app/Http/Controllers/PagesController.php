@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\News;
+use App\User;
+use App\Category;
 
 class PagesController extends Controller
 {
     public function index()
     {
-      return view('home');
+      $news = News::all();
+      $user = User::all();
+      $cat = Category::all();
+
+      return view('home', compact('news', 'user', 'cat'));
     }
 
     public function about()

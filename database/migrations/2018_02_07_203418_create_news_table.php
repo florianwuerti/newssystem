@@ -24,6 +24,7 @@ class CreateNewsTable extends Migration
             $table->string('news_thumbnail');
             $table->timestamps();
         });
+
     }
 
     /**

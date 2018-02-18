@@ -164,11 +164,18 @@ class NewsController extends Controller
     public function show() {
 
       // Hier wird die genaue News aus der Datenbank geladen inkl. Kategorien
-      $news = News::orderBy('created_at', 'desc' )->get();
+      $news = News::orderBy('created_at', 'desc')->get();
+
+      // Wir brauchen auch den User, der die News geschrieben hat. Der wird hier ausgegeben.
 
 
       // Hier geben wir die News dann aus
       return view('news.show', compact('news'));
 
+    }
+
+    public function getUser()
+    {
+      $user = User::where('id', 'App\News', $news->news_author)->get();
     }
 }

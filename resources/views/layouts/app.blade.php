@@ -1,6 +1,12 @@
 @include('includes.head')
 <body>
-  @include('includes.header')
+
+
+  @if (request()->is('admin*'))
+    @include('includes.admin.header')
+  @else
+    @include('includes.header')
+  @endif
   <div id="app">
       <main class="container">
           @yield('content')

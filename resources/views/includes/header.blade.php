@@ -21,18 +21,38 @@
                     <a class="nav-link" href="/">Home</a>
                   </li>
                   <li>
-                    <a class="nav-link" href="ueber-uns">Über uns</a>
+                    <a class="nav-link" href="/ueber-uns">Über uns</a>
                   </li>
                   <li>
-                    <a class="nav-link" href="projekte">Projekte</a>
+                    <a class="nav-link" href="/projekte">Projekte</a>
                   </li>
                   <li>
-                    <a class="nav-link" href="blog">Blog</a>
+                    <a class="nav-link" href="/blog">Blog</a>
                   </li>
                   <li>
-                    <a class="nav-link" href="kontakt">Kontakt</a>
+                    <a class="nav-link" href="/kontakt">Kontakt</a>
                   </li>
                 @endguest
+                @auth
+                  <li>
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/ueber-uns">Über uns</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/projekte">Projekte</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/blog">Blog</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/kontakt">Kontakt</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="/admin">Dashboard</a>
+                  </li>
+                @endauth
             </ul>
         </div>
     </div>

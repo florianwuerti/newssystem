@@ -10,15 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+              <li><a class="nav-link" href="/admin">Dashboard</a></li>
+              <li><a class="nav-link" href="/admin/news">News</a></li>
+              <li><a class="nav-link" href="/admin/category/new">Kategorie</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                @guest
-                  <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                  <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+              <!-- Authentication Links -->
+              <li><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
             </ul>
         </div>
     </div>
