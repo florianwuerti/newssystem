@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <img src="{{ asset('uploads/' . $news->news_thumbnail)}}" alt="">
+  <img src="{{ asset('uploads/' . $news->news_thumbnail)}}" alt="" class="img-fluid mt-5">
   <hr>
   <h1>{{ $news->news_title }}</h1>
   <hr>
