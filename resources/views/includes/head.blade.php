@@ -15,4 +15,5 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://use.fontawesome.com/ce47dc0f0c.js"></script>
 </head>

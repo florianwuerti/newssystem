@@ -7,7 +7,7 @@
 
   <hr>
 
-  <form action="/category/new" method="post">
+  <form action="/admin/category/new" method="post">
     {{ csrf_field() }}
     <div class="form-row">
       <div class="form-group col-md-6">

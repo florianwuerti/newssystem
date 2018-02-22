@@ -13810,6 +13810,15 @@ var app = new Vue({
   el: '#app'
 });
 
+// Custom JS
+
+
+document.querySelector('#select-image').onclick = function (e) {
+  e.preventDefault();
+
+  document.querySelector('#image').click();
+};
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {

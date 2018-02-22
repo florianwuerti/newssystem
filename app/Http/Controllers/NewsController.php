@@ -60,7 +60,12 @@ class NewsController extends Controller
       $news->news_title = $request->news_title;
       $news->news_content = $request->news_content;
       $news->news_author = $user_id;
-      $news->news_thumbnail = $fileName;
+
+      if(!empty($news->news_thumbnail)) {
+        $news->news_thumbnail = $fileName;
+      }else {
+        $news->news_thumbnail;
+      }
       $news->news_status = $status;
 
 
@@ -99,18 +104,17 @@ class NewsController extends Controller
     public function edit($id)
     {
       $categories = Category::all();
-
       // Hier wird die genaue News aus der Datenbank geladen inkl. Kategorien
       $news = News::where('id', $id)->with('categories')->first();
 
-      $news = News::find($id);
 
-      return view('news.edit', compact('news', 'user', 'categories'));
+      return view('news.edit', compact('news', 'user', '$categories'));
 
     }
 
     public function update(Request $request, $id)
     {
+
       if($request->has('updateNews')) {
 
         $news = News::find($id);

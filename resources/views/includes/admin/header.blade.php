@@ -16,10 +16,17 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-              <!-- Authentication Links -->
-              <li><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                  </div>
+              </li>
             </ul>
+          
         </div>
     </div>
 </nav>

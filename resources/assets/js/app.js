@@ -20,3 +20,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+
+// Custom JS
+
+
+document.querySelector('#select-image').onclick = function(e) {
+  e.preventDefault();
+
+    document.querySelector('#image').click();
+};

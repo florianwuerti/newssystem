@@ -21,7 +21,7 @@ class CreateNewsTable extends Migration
             $table->string('news_title');
             $table->text('news_content');
             $table->string('news_status');
-            $table->string('news_thumbnail');
+            $table->string('news_thumbnail')->nullable()->default(NULL);
             $table->timestamps();
         });
 

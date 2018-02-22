@@ -5,50 +5,35 @@
 @section('content')
   <h1>Kontakt Seite</h1>
 
-  <form>
+  <form action="/" method="post">
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        <label for="inputFirstname">Vorname</label>
+        <input type="text" class="form-control" name="inputFirstname" id="inputFirstname" placeholder="Vorname">
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        <label for="inputLastname">Nachname</label>
+        <input type="text" class="form-control" name="inputLastname" id="inputLastname" placeholder="Nachname">
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
+        <label for="inputPhone">Telefon</label>
+        <input type="text" class="form-control" name="inputPhone" id="inputPhone" placeholder="Telefon">
       </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
+      <div class="form-group col-md-6">
+        <label for="inputFirma">Firma</label>
+        <input type="text" class="form-control" name="inputFirma" id="inputCompany" placeholder="Firma">
       </div>
     </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email">
       </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+      <div class="form-group">
+        <label for="inputMessage">Deine Nachricht</label>
+        <textarea class="form-control" name="inputMessage" id="inputMessage" rows="10"></textarea>
+      </div>
+    <button type="submit" class="btn btn-primary mb-4">Kontaktanfrage Senden</button>
   </form>
 @endsection
